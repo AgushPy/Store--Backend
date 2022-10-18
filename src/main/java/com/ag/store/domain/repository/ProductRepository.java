@@ -3,9 +3,6 @@ package com.ag.store.domain.repository;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.stereotype.Repository;
-
-import com.ag.store.domain.Category;
 import com.ag.store.domain.Product;
 //@Repository
 public interface ProductRepository {

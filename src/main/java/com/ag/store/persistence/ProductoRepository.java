@@ -4,11 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
-
-import com.ag.store.domain.Category;
 import com.ag.store.domain.Product;
 import com.ag.store.domain.repository.ProductRepository;
 import com.ag.store.persistence.crud.ProductoCrudRepository;
