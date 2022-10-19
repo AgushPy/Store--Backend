@@ -1,5 +1,6 @@
 package com.ag.store.domain;
 
+
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -47,12 +48,13 @@ public class Purchase {
     public void setState(String state) {
         this.state = state;
     }
-    public List<PurchaseItem> getItem() {
+    public List<PurchaseItem> getItems() {
         return items;
     }
-    public void setItem(List<PurchaseItem> items) {
+    public void setItems(List<PurchaseItem> items) {
         this.items = items;
     }
+    
     
     
 }
