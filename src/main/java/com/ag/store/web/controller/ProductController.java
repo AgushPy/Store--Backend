@@ -16,6 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ag.store.domain.Product;
 import com.ag.store.domain.service.ProductService;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
 @RestController
 @RequestMapping("/products")
 @CrossOrigin("http://localhost:3000")
@@ -24,18 +29,20 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 	
-	@RequestMapping("/")
-	public String saludar() {
-		return "Hola";
-	}
-	
 	@GetMapping("/all")
+	@ApiOperation("Con este metodo te traes todos los productos que hay registrados")
+	@ApiResponse(code = 200,message = "OK")
 	public ResponseEntity<List<Product>> getAll(){
 		return new ResponseEntity<>(productService.getAll(),HttpStatus.OK);
 	}
 	
 	@GetMapping("/{productId}")
-	public ResponseEntity<Product> getProduct(@PathVariable("id") int  productId){
+	@ApiOperation("Buscar un producto por id")
+	@ApiResponses({
+	    @ApiResponse(code = 200,message = "OK"),
+	    @ApiResponse(code = 404,message = "Producto No encontrado")
+	})
+	public ResponseEntity<Product> getProduct(@ApiParam(value="La id de el producto",required = true,example = "7")@PathVariable("id") int  productId){
 		return productService.getProduct(productId)
 				.map(product ->new ResponseEntity<>(product,HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
