@@ -43,11 +43,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         para enviar la auntenficacion y se vuelve a reestablecer
         para las demas el inicio de sesion, pero luego este se desactiva 
         ya que el jwt se encargara del filtrado de sesiones */
-        http.csrf().disable().authorizeHttpRequests().antMatchers("/**/authenticate").permitAll()
+        http.csrf().disable().authorizeHttpRequests().antMatchers("/**/").permitAll()
              .anyRequest().authenticated().and().sessionManagement()
              .sessionCreationPolicy(SessionCreationPolicy.STATELESS);   
         http.addFilterBefore(jwtFilterRequest,UsernamePasswordAuthenticationFilter.class);
     }
+    
     
     @Override
     @Bean

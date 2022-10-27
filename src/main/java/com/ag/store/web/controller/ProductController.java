@@ -23,7 +23,6 @@ import io.swagger.annotations.ApiResponses;
 
 @RestController
 @RequestMapping("/products")
-@CrossOrigin("http://localhost:3000")
 public class ProductController {
 
 	@Autowired
