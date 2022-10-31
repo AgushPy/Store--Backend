@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ag.store.domain.Product;
@@ -68,8 +69,8 @@ public class ProductController {
 		}
 	}
 	
-	@GetMapping("/{freeShipping}/{discount}")
-	public ResponseEntity<Optional<List<Product>>> getProductsByCategory(@PathVariable Boolean freeShipping,@PathVariable Integer discount ){
+	@GetMapping("/filtered")
+	public ResponseEntity<Optional<List<Product>>> getProductsByCategory(@RequestParam(name = "freeShipping",defaultValue = "false") Boolean freeShipping,@RequestParam(name = "discount") Integer discount ){
 	    return new ResponseEntity<>(productService.getAllProductsFilters(freeShipping, discount),HttpStatus.OK);
 	}
 }
