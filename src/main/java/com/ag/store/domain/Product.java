@@ -8,6 +8,8 @@ public class Product {
 	private int stock;
 	private boolean active;
 	private Category category;
+	private boolean freeShipping;
+	private int discount;
 	
 	
 	public int getCategoryId() {
@@ -52,6 +54,19 @@ public class Product {
 	public void setName(String name) {
 		this.name = name;
 	}
+    public boolean isFreeShipping() {
+        return freeShipping;
+    }
+    public void setFreeShipping(boolean freeShipping) {
+        this.freeShipping = freeShipping;
+    }
+    public int getDiscount() {
+        return discount;
+    }
+    public void setDiscount(int discount) {
+        this.discount = discount;
+    }
+	
 	
 	
 }

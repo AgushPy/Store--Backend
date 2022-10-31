@@ -46,6 +46,11 @@ public class ProductService {
 //		}
 	}
 	
+	public Optional<List<Product>> getAllProductsFilters(Boolean freeShipping,Integer discount){
+//	    List<Product> products = productRepository.getAll();
+	    Optional<List<Product>> products = productRepository.getListByCategory(freeShipping, discount);
+	    return products;
+	}
 	
 	
 }

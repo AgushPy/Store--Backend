@@ -25,6 +25,12 @@ public class Producto {
     private Integer cantidadStock;
 
     private Boolean estado;
+    
+    @Column(name = "envio_gratis")
+    private Boolean envioGratis;
+    
+    @Column(name = "porcentaje_descuento")
+    private Integer porcentajeDescuento;
 
     @ManyToOne
     @JoinColumn(name = "id_categoria",insertable = false,updatable = false)
@@ -93,5 +99,25 @@ public class Producto {
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
+
+    public Boolean getEnvioGratis() {
+        return envioGratis;
+    }
+
+    public void setEnvioGratis(Boolean envioGratis) {
+        this.envioGratis = envioGratis;
+    }
+
+    public Integer getPorcentajeDescuento() {
+        return porcentajeDescuento;
+    }
+
+    public void setPorcentajeDescuento(Integer porcentajeDescuento) {
+        this.porcentajeDescuento = porcentajeDescuento;
+    }
+    
+    
+    
+    
     
 }

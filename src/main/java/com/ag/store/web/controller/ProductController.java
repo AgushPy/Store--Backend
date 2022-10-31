@@ -1,6 +1,8 @@
 package com.ag.store.web.controller;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -64,5 +66,10 @@ public class ProductController {
 		}else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
+	}
+	
+	@GetMapping("/{freeShipping}/{discount}")
+	public ResponseEntity<Optional<List<Product>>> getProductsByCategory(@PathVariable Boolean freeShipping,@PathVariable Integer discount ){
+	    return new ResponseEntity<>(productService.getAllProductsFilters(freeShipping, discount),HttpStatus.OK);
 	}
 }

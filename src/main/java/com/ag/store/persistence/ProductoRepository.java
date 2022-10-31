@@ -57,4 +57,9 @@ public class ProductoRepository implements ProductRepository{
 		Producto producto = mapper.toProducto(product);
 		return mapper.toProduct(productoCrudRepository.save(producto));
 	}
+	
+	public Optional<List<Product>> getListByCategory(Boolean freeShipping,int discount){
+	    Optional<List<Producto>> productos = productoCrudRepository.findByEnvioGratisAndPorcentajeDescuentoGreaterThanEqual(freeShipping, discount);
+	    return productos.map(prods -> mapper.toProducts(prods));
+	}
 }

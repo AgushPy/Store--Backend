@@ -7,8 +7,9 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.ag.store.persistence.entity.Compra;
+import com.ag.store.persistence.entity.Producto;
 
 
 public interface CompraCrudRepository extends CrudRepository<Compra, Integer>{
     Optional<List<Compra>> findByIdCliente(String idCliente);
-}
+   }

@@ -22,6 +22,9 @@ public interface ProductMapper {
 		@Mapping(source = "cantidadStock",target = "stock"),
 		@Mapping(source = "estado",target = "active"),
 		@Mapping(source = "categoria",target = "category"),
+		@Mapping(source = "envioGratis",target = "freeShipping"),
+		@Mapping(source = "porcentajeDescuento" ,target = "discount")
+		
 	})
 	Product toProduct(Producto producto);
 	List<Product> toProducts(List<Producto> products);
