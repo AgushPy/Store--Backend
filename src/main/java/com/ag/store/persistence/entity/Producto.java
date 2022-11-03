@@ -27,10 +27,10 @@ public class Producto {
     private Boolean estado;
     
     @Column(name = "envio_gratis")
-    private Boolean envioGratis;
+    private boolean envioGratis;
     
     @Column(name = "porcentaje_descuento")
-    private Integer porcentajeDescuento;
+    private int porcentajeDescuento;
 
     @ManyToOne
     @JoinColumn(name = "id_categoria",insertable = false,updatable = false)

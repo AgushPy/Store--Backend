@@ -70,7 +70,10 @@ public class ProductController {
 	}
 	
 	@GetMapping("/filtered")
-	public ResponseEntity<Optional<List<Product>>> getProductsByCategory(@RequestParam(name = "freeShipping",defaultValue = "false") Boolean freeShipping,@RequestParam(name = "discount") Integer discount ){
-	    return new ResponseEntity<>(productService.getAllProductsFilters(freeShipping, discount),HttpStatus.OK);
+	public ResponseEntity<Optional<List<Product>>> getProductsByCategory(
+	        @RequestParam(name = "freeShipping",defaultValue = "false") Boolean freeShipping
+	        ,@RequestParam(name = "discount" , defaultValue = "0") Integer discount,
+	        @RequestParam(name ="maxPrice", defaultValue = "1000000") Double maxPrice){
+	    return new ResponseEntity<>(productService.getAllProductsFilters(freeShipping, discount,maxPrice),HttpStatus.OK);
 	}
 }
